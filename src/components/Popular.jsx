@@ -17,6 +17,7 @@ const Popular = () => {
 		// Gives json format for the api data to interact with
 		const data = await api.json();
 		setPopular(data.recipes);
+        console.log(data.recipes);
 	};
 
 	return (
@@ -30,7 +31,7 @@ const Popular = () => {
 						<h3>Popular Picks</h3>
 						{popular.map((recipe) => {
 							return (
-								<Card>
+								<Card key={recipe.id}>
 									{/* Card: styled-component: see bottom of page*/}
 									{/* recipe.title from api; needs key to avoid errors */}
 									<p>{recipe.title}</p>
@@ -48,6 +49,11 @@ const Popular = () => {
 const Card = styled.div`
 	border-radius: 2rem;
 	min-height: 25rem;
+    overflow: hidden;
+
+    img{
+        border-radius: 2rem;
+    }
 `;
 
 const Wrapper = styled.div`
