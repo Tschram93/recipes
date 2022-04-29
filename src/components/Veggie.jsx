@@ -17,18 +17,21 @@ const Veggie = () => {
 			setVeggie(JSON.parse(check));
 		} else {
 			// Fetch api and utilizing .env file for security of the api key information
+
 			const api = await fetch(
-				`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=8`
+				`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9`
 			);
+
 			// Gives json format for the api data to interact with
 			const data = await api.json();
+            
 			// Taking the api array data, turning it into a string and storing it into localstorage
 			localStorage.setItem('veggie', JSON.stringify(data.recipes));
 			setVeggie(data.recipes);
 			console.log(data.recipes);
 		}
 	};
-    
+
 	return (
 		<div>
 			{/* using map to go through the API json data and outputting a recipe title
@@ -43,7 +46,8 @@ const Veggie = () => {
 						drag: 'free',
 						gap: '5rem',
 						pagination: false,
-						perPage: 4,
+                        // Changed perpage value to differ from Popular.jsx
+						perPage: 3,
 					}}
 				>
 					{veggie.map((recipe) => {
