@@ -41,7 +41,6 @@ const Popular = () => {
 					{popular.map((recipe) => {
 						return (
 							<SplideSlide>
-								{' '}
 								{/* Turns each Card into a Slide */}
 								<Card key={recipe.id}>
 									{/* Card: styled-component: see bottom of page*/}
@@ -62,10 +61,33 @@ const Card = styled.div`
 	border-radius: 2rem;
 	min-height: 25rem;
 	overflow: hidden;
+    position: relative;
 
 	img {
 		border-radius: 2rem;
+        height: 100%;
+        left: 0;
+        object-fit: cover;
+        position: absolute;
+        width: 100%;
 	}
+
+    p{
+        align-items: center;
+        bottom: 0%;
+        color: #fff;
+        display: flex;
+        font-size: 1rem;
+        font-weight: 600;
+        height: 40%;
+        justify-content: center;
+        position: absolute;
+        left: 50%;
+        text-align: center;
+        transform: translate(-50%, 0%);
+        width: 100%;
+        z-index: 10;
+    }
 `;
 
 const Wrapper = styled.div`
