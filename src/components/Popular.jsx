@@ -13,7 +13,7 @@ const Popular = () => {
 	const getPopular = async () => {
 		// Fetch api and utilizing .env file for security of the api key information
 		const api = await fetch(
-			`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=16`
+			`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=8`
 		);
 		// Gives json format for the api data to interact with
 		const data = await api.json();
@@ -40,13 +40,14 @@ const Popular = () => {
 				>
 					{popular.map((recipe) => {
 						return (
-							<SplideSlide>
+							<SplideSlide key={recipe.id}>
 								{/* Turns each Card into a Slide */}
-								<Card key={recipe.id}>
+								<Card>
 									{/* Card: styled-component: see bottom of page*/}
 									{/* recipe.title from api; needs key to avoid errors */}
 									<p>{recipe.title}</p>
 									<img src={recipe.image} alt={recipe.title} />
+                                    <Gradient />
 								</Card>
 							</SplideSlide>
 						);
@@ -88,6 +89,14 @@ const Card = styled.div`
         width: 100%;
         z-index: 10;
     }
+`;
+
+const Gradient = styled.div`
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5))
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: 3;
 `;
 
 const Wrapper = styled.div`
