@@ -19,12 +19,13 @@ const Veggie = () => {
 			// Fetch api and utilizing .env file for security of the api key information
 
 			const api = await fetch(
-				`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9`
+				`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9&tags=vegetarian`
 			);
+            // https://api.spoonacular.com/recipes/complexSearch
 
 			// Gives json format for the api data to interact with
 			const data = await api.json();
-            
+
 			// Taking the api array data, turning it into a string and storing it into localstorage
 			localStorage.setItem('veggie', JSON.stringify(data.recipes));
 			setVeggie(data.recipes);
@@ -38,7 +39,7 @@ const Veggie = () => {
 			 */}
 			<Wrapper>
 				{/* Wrapper: styled-component: see bottom of page*/}
-				<h3>Veggie Picks</h3>
+				<h3>Vegetarian Choices</h3>
 				<Splide
 					// Options customizes(styles)
 					options={{
