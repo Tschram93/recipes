@@ -25,7 +25,6 @@ const Popular = () => {
 		<div>
 			{/* using map to go through the API json data and outputting a recipe title
 			 */}
-			{popular.map((recipe) => {
 				return (
 					<Wrapper>
 						{/* Wrapper: styled-component: see bottom of page*/}
@@ -47,7 +46,6 @@ const Popular = () => {
 						</Splide>
 					</Wrapper>
 				);
-			})}
 		</div>
 	);
 };
