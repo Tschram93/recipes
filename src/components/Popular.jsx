@@ -34,6 +34,7 @@ const Popular = () => {
 									{/* Card: styled-component: see bottom of page*/}
 									{/* recipe.title from api; needs key to avoid errors */}
 									<p>{recipe.title}</p>
+                                    <img src={recipe.image} alt={recipe.title} />
 								</Card>
 							);
 						})}
