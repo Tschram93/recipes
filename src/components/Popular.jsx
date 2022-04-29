@@ -13,7 +13,7 @@ const Popular = () => {
 	const getPopular = async () => {
 		// Fetch api and utilizing .env file for security of the api key information
 		const api = await fetch(
-			`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=8`
+			`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=16`
 		);
 		// Gives json format for the api data to interact with
 		const data = await api.json();
@@ -25,27 +25,35 @@ const Popular = () => {
 		<div>
 			{/* using map to go through the API json data and outputting a recipe title
 			 */}
-				return (
-					<Wrapper>
-						{/* Wrapper: styled-component: see bottom of page*/}
-						<h3>Popular Picks</h3>
-
-						<Splide>
-							{popular.map((recipe) => {
-								return (
-									<SplideSlide> {/* Turns each Card into a Slide */}
-										<Card key={recipe.id}>
-											{/* Card: styled-component: see bottom of page*/}
-											{/* recipe.title from api; needs key to avoid errors */}
-											<p>{recipe.title}</p>
-											<img src={recipe.image} alt={recipe.title} />
-										</Card>
-									</SplideSlide>
-								);
-							})}
-						</Splide>
-					</Wrapper>
-				);
+			<Wrapper>
+				{/* Wrapper: styled-component: see bottom of page*/}
+				<h3>Popular Picks</h3>
+				<Splide
+                    // Options customizes(styles)
+					options={{
+                        arrows: false,
+                        drag: 'free',
+                        gap: '5rem',
+                        pagination: false,
+						perPage: 4,
+					}}
+				>
+					{popular.map((recipe) => {
+						return (
+							<SplideSlide>
+								{' '}
+								{/* Turns each Card into a Slide */}
+								<Card key={recipe.id}>
+									{/* Card: styled-component: see bottom of page*/}
+									{/* recipe.title from api; needs key to avoid errors */}
+									<p>{recipe.title}</p>
+									<img src={recipe.image} alt={recipe.title} />
+								</Card>
+							</SplideSlide>
+						);
+					})}
+				</Splide>
+			</Wrapper>
 		</div>
 	);
 };
