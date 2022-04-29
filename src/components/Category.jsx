@@ -7,22 +7,22 @@ import {NavLink} from 'react-router-dom';
 function Category() {
     return (
         <List>
-            <NavLink>
+            <div>
                 <FaIcons.FaPizzaSlice />
                 <h4>Italian</h4>
-            </NavLink>
-            <NavLink>
+            </div>
+            <div>
                 <FaIcons.FaHamburger />
                 <h4>American</h4>
-            </NavLink>
-            <NavLink>
+            </div>
+            <div>
                 <GiIcons.GiNoodles />
                 <h4>Thai</h4>
-            </NavLink>
-            <NavLink>
+            </div>
+            <div>
                 <GiIcons.GiChopsticks />
                 <h4>Japanese</h4>
-            </NavLink>
+            </div>
         </List>
     )
 };
