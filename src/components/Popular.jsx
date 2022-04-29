@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import styled from 'styled-components';
 import '@splidejs/react-splide/css';
+
 const Popular = () => {
 	const [popular, setPopular] = useState([]);
 
