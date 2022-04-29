@@ -5,7 +5,7 @@ import {Route, Routes} from 'react-router-dom';
 function Pages() {
     return (
         <Routes>
-            <Home />
+        <Route element={<Home/>} path='/' />
         </Routes>
     )
 }
